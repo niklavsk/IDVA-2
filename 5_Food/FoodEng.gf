@@ -6,7 +6,9 @@ concrete FoodEng of Food = open SyntaxEng, ParadigmsEng in {
         Item        = NP ;
         Kind        = CN ;
 		NKind       = CN ;
+		AKind       = CN ;
         Nationality = A ;
+		Adjective   = A ;
         Quality     = AP ;
 		MQuality    = AP ;
         Degree      = AdA ;
@@ -27,6 +29,11 @@ concrete FoodEng of Food = open SyntaxEng, ParadigmsEng in {
         NThat  nkind = mkNP that_Det nkind ;
         NThese nkind = mkNP these_Det nkind ;
         NThose nkind = mkNP those_Det nkind ;
+		
+		AThis  akind = mkNP this_Det akind ;
+        AThat  akind = mkNP that_Det akind ;
+        AThese akind = mkNP these_Det akind ;
+        AThose akind = mkNP those_Det akind ;
 
         Cheese = mkCN (mkN "cheese") ;
         Fish   = mkCN (mkN "fish" "fish") ;
@@ -34,10 +41,15 @@ concrete FoodEng of Food = open SyntaxEng, ParadigmsEng in {
         Wine   = mkCN (mkN "wine") ;
 
         NationalFood nationality kind = mkCN nationality kind ;
+		AdjectiveFood adjective kind = mkCN adjective kind ;
 
         Dutch   = mkA "Dutch" ;
         French  = mkA "French" ;
         Italian = mkA "Italian" ;
+		
+		ADelicious = mkA "delicious" ;
+        AExpensive = mkA "expensive" ;
+        AFresh     = mkA "fresh" ;
 
         Delicious = mkAP (mkA "delicious") ;
         Expensive = mkAP (mkA "expensive") ;

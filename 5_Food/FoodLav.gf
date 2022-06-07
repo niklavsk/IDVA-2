@@ -8,7 +8,9 @@ concrete FoodLav of Food = open SyntaxLav, ParadigmsLav in {
         Item        = NP ;
         Kind        = CN ;
 		NKind       = CN ;
+		AKind       = CN ;
         Nationality = A ;
+		Adjective   = A ;
         Quality     = AP ;
 		MQuality    = AP ;
         Degree      = AdA ;
@@ -29,6 +31,11 @@ concrete FoodLav of Food = open SyntaxLav, ParadigmsLav in {
         NThat  nkind = mkNP that_Det nkind ;
         NThese nkind = mkNP these_Det nkind ;
         NThose nkind = mkNP those_Det nkind ;
+		
+		AThis  akind = mkNP this_Det akind ;
+        AThat  akind = mkNP that_Det akind ;
+        AThese akind = mkNP these_Det akind ;
+        AThose akind = mkNP those_Det akind ;
 
         Cheese = mkCN (mkN "siers") ;
         Fish   = mkCN (mkN "zivs" feminine) ;
@@ -36,10 +43,15 @@ concrete FoodLav of Food = open SyntaxLav, ParadigmsLav in {
         Wine   = mkCN (mkN "vīns") ;
 
         NationalFood nationality kind = mkCN nationality kind ;
+		AdjectiveFood adjective kind = mkCN adjective kind ;
 
         Dutch   = mkA "holandiešu" ;
         French  = mkA "franču" ;
         Italian = mkA "itāliešu" ;
+		
+		ADelicious = mkA "gards" ;
+        AExpensive = mkA "dārgs" ;
+        AFresh     = mkA "svaigs" ;
 
         Delicious = mkAP (mkA "gards") ;
         Expensive = mkAP (mkA "dārgs") ;

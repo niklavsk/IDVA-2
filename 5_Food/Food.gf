@@ -8,7 +8,9 @@ abstract Food = {
         Item ;			-- NP
         Kind ;			-- CN
 		NKind ;			-- CN
+		AKind ;			-- CN
         Nationality ;	-- A
+		Adjective ;		-- A
         Quality ;		-- AP
 		MQuality ;		-- AP
         Degree ;        -- AdA
@@ -23,13 +25,18 @@ abstract Food = {
 
         This, That, These, Those : Kind -> Item ;
 		NThis, NThat, NThese, NThose : NKind -> Item ;
+		AThis, AThat, AThese, AThose : AKind -> Item ;
 
         Cheese, Fish, Pizza, Wine : Kind ;
 
         NationalFood : Nationality -> Kind -> NKind ;
+		
+		AdjectiveFood : Adjective -> Kind -> AKind ;
 
         Dutch, French, Italian : Nationality ;
 
+		ADelicious, AExpensive, AFresh : Adjective ;
+		
         Delicious, Expensive, Fresh : Quality ;
 
         ModifiedQuality : Degree -> Quality -> MQuality ;
