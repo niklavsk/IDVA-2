@@ -16,7 +16,7 @@ NP_Gen_2.  NP_Gen ::= NP_Gen N_Gen ;
 
 -- Added
 NP_Dat_1.  NP_Dat ::= N_Dat ;
-NP_Dat_2.  NP_Dat ::= NP_Dat N_Dat ;
+NP_Dat_2.  NP_Dat ::= NP_Gen N_Dat ;
 
 NP_Acc_1.  NP_Acc ::= N_Acc ;
 NP_Acc_2.  NP_Acc ::= NP_Gen N_Acc ;
