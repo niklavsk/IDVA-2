@@ -1,12 +1,22 @@
-S_1.  S ::= NP_Nom VP ;
+-- Modified
+S_1.  S ::= NP_Nom VP_Acc ;
+S_2.  S ::= NP_Dat VP_Nom ;
+S_3.  S ::= NP_Dat VP_Gen ;
 
-VP_1.  VP ::= V NP_Acc ;
+-- Modified
+VP_1.  VP_Acc ::= V_Nom_Acc NP_Acc ;
+VP_2.  VP_Nom ::= V_Dat_Nom NP_Nom ;
+VP_3.  VP_Gen ::= V_Dat_Gen NP_Gen ;
 
 NP_Nom_1.  NP_Nom ::= N_Nom ;
 NP_Nom_2.  NP_Nom ::= NP_Gen N_Nom ;
 
 NP_Gen_1.  NP_Gen ::= N_Gen ;
 NP_Gen_2.  NP_Gen ::= NP_Gen N_Gen ;
+
+-- Added
+NP_Dat_1.  NP_Dat ::= N_Dat ;
+NP_Dat_2.  NP_Dat ::= NP_Dat N_Dat ;
 
 NP_Acc_1.  NP_Acc ::= N_Acc ;
 NP_Acc_2.  NP_Acc ::= NP_Gen N_Acc ;
@@ -17,32 +27,44 @@ N_Nom_2.  N_Nom ::= N_Pl_Nom ;
 N_Gen_1.  N_Gen ::= N_Sg_Gen ;
 N_Gen_2.  N_Gen ::= N_Pl_Gen ;
 
+-- Added
+N_Dat_1.  N_Dat ::= N_Sg_Dat ;
+N_Dat_2.  N_Dat ::= N_Pl_Dat ;
+
 N_Acc_1.  N_Acc ::= N_Sg_Acc ;
 N_Acc_2.  N_Acc ::= N_Pl_Acc ;
 
-read_V.  V ::= "lasa" ;
-like_V.  V ::= "patīk" ;
+-- Modified
+read_V.  V_Nom_Acc ::= "lasa" ;
+like_V.  V_Dat_Nom ::= "patik" ;
+miss_V.  V_Dat_Gen ::= "pietrukst" ;
 
-boy_N_Sg_Nom.  N_Sg_Nom ::= "zēns" ;
-boy_N_Sg_Gen.  N_Sg_Gen ::= "zēna" ;
-boy_N_Sg_Acc.  N_Sg_Acc ::= "zēnu" ;
-boy_N_Pl_Nom.  N_Pl_Nom ::= "zēni" ;
-boy_N_Pl_Gen.  N_Pl_Gen ::= "zēnu" ;
-boy_N_Pl_Acc.  N_Pl_Acc ::= "zēnus" ;
+boy_N_Sg_Nom.  N_Sg_Nom ::= "zens" ;
+boy_N_Sg_Gen.  N_Sg_Gen ::= "zena" ;
+boy_N_Sg_Dat.  N_Sg_Dat ::= "zenam" ;		-- Added
+boy_N_Sg_Acc.  N_Sg_Acc ::= "zenu" ;
+boy_N_Pl_Nom.  N_Pl_Nom ::= "zeni" ;
+boy_N_Pl_Gen.  N_Pl_Gen ::= "zenu" ;
+boy_N_Pl_Dat.  N_Pl_Dat ::= "zeniem" ;		-- Added
+boy_N_Pl_Acc.  N_Pl_Acc ::= "zenus" ;
 
-book_N_Sg_Nom.  N_Sg_Nom ::= "grāmata" ;
-book_N_Sg_Gen.  N_Sg_Gen ::= "grāmatas" ;
-book_N_Sg_Acc.  N_Sg_Acc ::= "grāmatu" ;
-book_N_Pl_Nom.  N_Pl_Nom ::= "grāmatas" ;
-book_N_Pl_Gen.  N_Pl_Gen ::= "grāmatu" ;
-book_N_Pl_Acc.  N_Pl_Acc ::= "grāmatas" ;
+book_N_Sg_Nom.  N_Sg_Nom ::= "gramata" ;
+book_N_Sg_Gen.  N_Sg_Gen ::= "gramatas" ;
+book_N_Sg_Dat.  N_Sg_Dat ::= "gramatai" ;	-- Added
+book_N_Sg_Acc.  N_Sg_Acc ::= "gramatu" ;
+book_N_Pl_Nom.  N_Pl_Nom ::= "gramatas" ;
+book_N_Pl_Gen.  N_Pl_Gen ::= "gramatu" ;
+book_N_Pl_Dat.  N_Pl_Dat ::= "gramatam" ;	-- Added
+book_N_Pl_Acc.  N_Pl_Acc ::= "gramatas" ;
 
-text_N_Sg_Nom.  N_Sg_Nom ::= "mācība" ;
-text_N_Sg_Gen.  N_Sg_Gen ::= "mācības" ;
-text_N_Sg_Acc.  N_Sg_Acc ::= "mācību" ;
-text_N_Pl_Nom.  N_Pl_Nom ::= "mācības" ;
-text_N_Pl_Gen.  N_Pl_Gen ::= "mācību" ;
-text_N_Pl_Acc.  N_Pl_Acc ::= "mācības" ;
+text_N_Sg_Nom.  N_Sg_Nom ::= "maciba" ;
+text_N_Sg_Gen.  N_Sg_Gen ::= "macibas" ;
+text_N_Sg_Dat.  N_Sg_Dat ::= "macibai" ;	-- Added
+text_N_Sg_Acc.  N_Sg_Acc ::= "macibu" ;
+text_N_Pl_Nom.  N_Pl_Nom ::= "macibas" ;
+text_N_Pl_Gen.  N_Pl_Gen ::= "macibu" ;
+text_N_Pl_Dat.  N_Pl_Dat ::= "macibam" ;	-- Added
+text_N_Pl_Acc.  N_Pl_Acc ::= "macibas" ;
 
 -- parse "grāmatu zēni lasa mācību grāmatas"
 -- generate_random | linearize -treebank
